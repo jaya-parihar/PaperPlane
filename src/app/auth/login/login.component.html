@@ -1,0 +1,72 @@
+
+<div class="hold-transition login-page">
+    
+    <div class="login-box">
+      
+        <div class="login-logo">
+            <a href="#">Paper <strong>Plane</strong></a>
+        </div>
+
+        <div class="card">
+        <div class="card-body flex-direction-row d-flex spinner-loader" *ngIf="resourceLoad">
+            <div class="row">
+                <div class="col-md-12 my-4">
+                  <div class="col-md-5 m-auto">
+                    <mat-spinner class="m-auto" [diameter]="70"></mat-spinner>
+                  </div>
+                </div>
+                <div class="col-md-12 text-center mb-3">
+                    <h2>Authenticating, please wait.....</h2>
+                </div>
+            </div>
+        </div>
+            <div *ngIf="!resourceLoad">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in as a vendor</p>
+                
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <fa-icon [icon]="faEnvelope"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <fa-icon [icon]="faLock"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" formControlName="remember" class="mr-1" id="remember">
+                                <label for="remember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+    
+                    <p class="mb-1" >
+                        <a class="text-center">I forgot my password</a>
+                    </p>
+                    <p class="mb-0" >
+                        <a class="text-center" (click)="goTo()" >Register a new membership</a>
+                    </p>
+                </div>
+        </div>
+            </div>
+       </div>
+        
+    </div>

@@ -1,0 +1,24 @@
+@import "../login/login.component.css";
+
+
+
+.login-box{
+    width:600px;
+}
+.agree-terms{
+    font-weight: 550;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  .custom-inputs{
+      color:black;
+      border-color: black;
+  }
+
+  .custom-input-box{
+      border-color: black;
+
+  }
+  
+   

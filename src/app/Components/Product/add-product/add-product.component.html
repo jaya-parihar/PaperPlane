@@ -1,0 +1,101 @@
+<form [formGroup]="addProduct" class="col-md-12 p-0" (ngSubmit)="addProductMet()">
+<div class="row py-3 px-5">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb" class="breadcrumb-custom">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Home</li>
+              <li class="breadcrumb-item">Products</li>
+              <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+            </ol>
+          </nav>
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="card card-body">
+          
+                <div class="row mb-4">
+                  <div class="col">
+                      <label class="form-label">Product Name</label>
+                    <input type="text" class="form-control" placeholder="Enter product name" formControlName="item_name">
+                  </div>
+                  
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                    <label class="form-label">Product Description</label>
+                        <textarea name="" class="form-control" cols="30" rows="10" placeholder="Product Description" formControlName="item_description"></textarea>
+                    </div>  
+               </div>
+               <div class="row mb-4">
+                   <div class="col-md-4">
+                       <label class="form-label">Stock</label>
+                       <input type='number' class="form-control" formControlName="stocks" placeholder="Total stock available">
+                   </div>
+                   <div class="col-md-4">
+                    <label class="form-label">Actual Price</label>
+                    <input type='number' class="form-control" formControlName="actual_price" placeholder="Actual price">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Selling Price</label>
+                    <input type='number' class="form-control" formControlName="selling_price" placeholder="Selling price">
+                </div>
+               </div>
+             
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body px-0 pt-1">
+            <div class="col-md-12 publish-status py-2 mb-3">
+                <h4 class="p-0 m-0 text-secondary">Category and packaging option</h4>
+            </div>
+            <div class="col-md-12 publish-status mb-3">
+                <select class="btn btn-light mb-3 button-category text-secondary" formControlName="category_id">
+                    <option selected>Select Category</option>
+                    <option *ngFor="let cat of categoriesData;" value="{{ cat.category_id}}">{{ cat.category_name }}</option>
+                </select>
+            </div>
+            <div class="col-md-12 publish-status pb-3 pl-3">
+                <div class="form-check">
+                    <input (change)="packagingOption($event)" formControlName="packaging"  class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label text-secondary packaging-cost" for="defaultCheck1">
+                     Packaging Option 
+                    </label>
+                  </div>
+                  <div class="col-md-12 p-0 mt-3 pr-2" *ngIf="showPackagingPrice">
+                    <label class="form-label">Packaging Cost</label>
+                    <input type='number' class="form-control" formControlName="packagingCost" placeholder="Enter packaging cost">
+                  </div>
+             </div>
+           
+        </div>
+        <div class="card card-body px-0 pt-1">
+                <div class="col-md-12 publish-status py-2 mb-3">
+                    <h4 class="p-0 m-0 text-secondary">Publish</h4>
+                </div>
+                <div class="col-md-12 mb-2 publish-status">
+                   <p class="mb-2  text-secondary">Status: <span class="font-weight-bold  text-dark">Draft</span></p> 
+                </div>
+                <div class="col-md-12 mb-2 publish-status">
+                    <p class="mb-2 text-secondary">Visiblity: <span class="font-weight-bold  text-dark">Private</span></p> 
+                 </div>
+                 <div class="col-md-12 mb-2 publish-status">
+                    <p class="mb-2 text-secondary">Published on: <span class="font-weight-bold text-dark">23-12-2020 11:30 PM</span></p> 
+                 </div>
+                 <div class="col-md-12 mt-2 p-0 d-flex">
+                     <div class="col-md-4 d-flex justify-content-center">
+                         <input type="submit" class="btn btn-danger" value="Delete">
+                     </div>
+                     <div class="col-md-4 d-flex justify-content-center">
+                        <input type="submit" class="btn btn-primary" value="Preview">
+                    </div>
+                     <div class="col-md-4 d-flex justify-content-center">
+                        <input type="submit" class="btn btn-success" value="Publish">
+                    </div>
+                 </div>
+        </div>
+    
+    </div>
+
+</div>
+</form>
