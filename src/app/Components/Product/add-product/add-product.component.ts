@@ -15,6 +15,7 @@ export class AddProductComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private router: Router) {
+      
       this.addProduct = formBuilder.group({
         item_name: new FormControl(),
         category_id: new FormControl(),
@@ -78,6 +79,11 @@ export class AddProductComponent implements OnInit {
             this.toastr.success(res.message);
               this.addProduct.reset();
           }
+          else if(res.status == 400)
+          {
+            this.toastr.info("length must be at least 10 characters long");
+          }
+          
 
         }
         );

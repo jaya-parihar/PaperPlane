@@ -1,3 +1,4 @@
+
 import {
   Component,
   OnInit,
@@ -6,6 +7,11 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
+
+import { 
+  faBoxOpen,
+} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-menu-sidebar',
@@ -17,11 +23,19 @@ export class MenuSidebarComponent implements OnInit, AfterViewInit {
   @Output() mainSidebarHeight: EventEmitter<any> = new EventEmitter<any>();
  
 
-  ngOnInit() {}
+  faBoxOpen = faBoxOpen;
+  
+
+  ngOnInit() {
+
+    console.log(this.isDropdown);
+  }
 
   ngAfterViewInit() {
     this.mainSidebarHeight.emit(this.mainSidebar.nativeElement.offsetHeight);
   }
+  
+  
   isDropdown:boolean = true;
   toggleDropdown(doc:string): void{
     {
@@ -37,4 +51,7 @@ export class MenuSidebarComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+
 }
+

@@ -11,6 +11,8 @@ import { MessagesDropdownMenuComponent } from '../Components/main/header/message
 import { NotificationsDropdownMenuComponent } from "../Components/main/header/notifications-dropdown-menu/notifications-dropdown-menu.component";
 import { UserDropdownMenuComponent } from "../Components/main/header/user-dropdown-menu/user-dropdown-menu.component";
 import { MenuSidebarComponent } from "../Components/main/menu-sidebar/menu-sidebar.component"
+
+
 @NgModule({
   declarations: [VendorComponent, HomeComponent,
     HeaderComponent,
@@ -22,6 +24,7 @@ import { MenuSidebarComponent } from "../Components/main/menu-sidebar/menu-sideb
   imports: [
     CommonModule,
     VendorRoutingModule,
+    FontAwesomeModule,
     
   ],
   exports: [VendorComponent]
